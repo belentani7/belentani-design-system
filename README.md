@@ -1,20 +1,35 @@
-# BELENTANI DESIGN SYSTEM — Glass Thick Red Neon
+# belentani-design-system
 
-Sistema de diseño drop-in del ecosistema Belentani: cristal grueso lechoso, neón rojo (#ff0040), glitch de máquina viviente y coding rain.
+Sistema de diseño del universo Belentani.
 
-## Uso rápido (CDN de GitHub Pages)
-```html
-<link rel="stylesheet" href="https://belentani7.github.io/belentani-design-system/belentani-glass.css">
-<canvas id="bn-rain"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://belentani7.github.io/belentani-design-system/belentani-machine.js"></script>
-```
+## Qué es
 
-## Clases
-- `.bn-panel` — panel de cristal grueso (inset lechoso + glow rojo)
-- `.bn-title`, `.bn-sub`, `.bn-card`, `.bn-btn`, `.bn-bar`
-- `.bn-glitch`, `.bn-flicker`, `.bn-scanlines`
-- `.bn-safe` en `<html>` — guard anti-overflow móvil
+Los tokens y componentes que dan coherencia a todas las webs del universo. Vive en dos
+archivos porque no necesita más.
 
-## JS
-`BelentaniFX.rain()` · `BelentaniFX.entrance()` (GSAP con fallback) · `BelentaniFX.parallax()`
+## Contenido
+
+| Archivo | Función |
+|---|---|
+| `belentani-glass.css` | Capa visual: cristal, bordes, superficies |
+| `belentani-machine.js` | Comportamiento: máquina de estados, utilidades |
+
+## Tokens
+
+| Token | Valor | Uso |
+|---|---|---|
+| Negro | `#000000` | Fondo base |
+| Rojo neón | `#ff073a` | Acento principal |
+| Dorado Zion | `#d4af37` | Acento secundario |
+| Cyan | `#4de8e0` | Acento técnico |
+| Orbitron | tipografía | Títulos |
+| Share Tech Mono | tipografía | Cuerpo y código |
+
+## Nota
+
+La rama por defecto de este repositorio es `duck`, no `main`. Tenlo en cuenta al clonar
+o al enlazar archivos.
+
+## Licencia
+
+Sin licencia declarada.
