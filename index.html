@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" class="bn-safe">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Belentani Design System — glass thick red neon alive machine" />
+  <title>Belentani — Alive Glass Machine</title>
+  <link rel="stylesheet" href="belentani-glass.css" />
+  <style>
+    .demo {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 4.5rem 0 5rem;
+    }
+    .demo-hero {
+      margin-bottom: 1.5rem;
+    }
+    .demo-copy {
+      max-width: 38ch;
+      margin: 1rem 0 1.5rem;
+      color: var(--bn-text-dim);
+    }
+  </style>
+</head>
+<body class="bn-scanlines bn-vignette">
+  <canvas id="bn-rain" class="bn-rain" aria-hidden="true"></canvas>
+
+  <main class="bn-stage demo">
+    <section class="bn-panel bn-panel--alive demo-hero">
+      <p class="bn-kicker">Bio machine · gloss neon red</p>
+      <h1 class="bn-title bn-glitch bn-flicker">Alive Machine</h1>
+      <p class="bn-sub">Thick milky glass · red neon · living pulse</p>
+      <p class="demo-copy">
+        Cristal grueso lechoso con barrido gloss, aura neón y ritmo cardíaco.
+        Drop-in CSS + JS para todo el ecosistema Belentani.
+      </p>
+      <div class="bn-row">
+        <a class="bn-btn bn-btn--solid" href="#sistema">Entrar al sistema</a>
+        <button class="bn-btn bn-btn--ghost" type="button" id="bn-pulse-btn">Pulse</button>
+        <span class="bn-badge">v2.0</span>
+        <span class="bn-badge bn-badge--cyan">rAF rain</span>
+        <span class="bn-badge bn-badge--gold">Zion gold</span>
+      </div>
+      <hr class="bn-divider" />
+      <div class="bn-hud" aria-label="Estado de la máquina">
+        <div class="bn-hud__row"><span>CORE</span><strong>ONLINE</strong></div>
+        <div class="bn-hud__row"><span>VITALITY</span><strong id="bn-vital-label">72%</strong></div>
+        <div class="bn-vital" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" aria-label="Vitalidad">
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sistema" class="bn-stack">
+      <div class="bn-grid bn-grid--2">
+        <article class="bn-card">
+          <span class="bn-num">01</span>Glass thick panel
+          <p class="bn-sub" style="margin-top:.6rem;letter-spacing:.12em">Inset milky gloss + red cavity glow</p>
+        </article>
+        <article class="bn-card">
+          <span class="bn-num">02</span>Coding rain
+          <p class="bn-sub" style="margin-top:.6rem;letter-spacing:.12em">Canvas DPR · pause on hidden tab</p>
+        </article>
+        <article class="bn-card">
+          <span class="bn-num">03</span>Heartbeat HUD
+          <p class="bn-sub" style="margin-top:.6rem;letter-spacing:.12em">Vital bar + glitch pulse API</p>
+        </article>
+        <article class="bn-card">
+          <span class="bn-num">04</span>Reduced motion
+          <p class="bn-sub" style="margin-top:.6rem;letter-spacing:.12em">Respeta prefers-reduced-motion</p>
+        </article>
+      </div>
+
+      <div class="bn-panel bn-panel--tight">
+        <form class="bn-stack" onsubmit="return false">
+          <div class="bn-field">
+            <label class="bn-label" for="signal">Signal input</label>
+            <input class="bn-input" id="signal" name="signal" placeholder="inyectar comando…" autocomplete="off" />
+          </div>
+          <div class="bn-bar" aria-hidden="true"><i></i></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="belentani-machine.js"></script>
+  <script>
+    document.getElementById('bn-pulse-btn').addEventListener('click', function () {
+      if (window.BelentaniFX) window.BelentaniFX.pulse('.bn-panel--alive');
+    });
+    if (window.BelentaniFX) {
+      window.BelentaniFX.tickVital({
+        start: 72,
+        ms: 850,
+        pulseSel: '.bn-panel--alive',
+      });
+      var label = document.getElementById('bn-vital-label');
+      setInterval(function () {
+        var el = document.querySelector('.bn-vital');
+        if (!el || !label) return;
+        label.textContent = (el.getAttribute('aria-valuenow') || '72') + '%';
+      }, 400);
+    }
+  </script>
+</body>
+</html>
